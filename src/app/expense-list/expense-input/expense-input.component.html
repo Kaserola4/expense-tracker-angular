@@ -1,0 +1,28 @@
+<div>
+  <form action="submit">
+    <div>
+      <label for="title">Title</label>
+      <input type="text" [formControl]="title" name="title" />
+    </div>
+    <div>
+      <label for="amount">Amount</label>
+      <input type="number" [formControl]="amount" id="amount" name="amount" />
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <input type="text" [formControl]="description" id="description" name="description" />
+    </div>
+
+    <div>
+      <input type="checkbox" [formControl]="isRevenue" name="isExpense" id="isExpense"/>
+      <label for="isExpense">Revenue</label>
+    </div>
+
+    <div>
+      <label for="date">Date</label>
+      <input type="date" [formControl]="date" id="date" name="date">
+    </div>
+
+    <button type="submit" (click)="addExpense()">Add</button>
+  </form>
+</div>

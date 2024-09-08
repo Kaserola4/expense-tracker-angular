@@ -1,0 +1,8 @@
+<div>
+  <ul>
+    @for (expense of expenses; track expense.id) {
+      <expense-list-item [expense]="expense"></expense-list-item>
+    }
+  </ul>
+  <expense-resumee></expense-resumee>
+</div>
