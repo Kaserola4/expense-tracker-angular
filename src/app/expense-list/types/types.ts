@@ -3,7 +3,7 @@ export type ExpenseType = 'income' | 'expense';
 export type ExpenseItem = {
   id?: number,
   title: string,
-  type: ExpenseType,
+  isRevenue: boolean,
   description: string,
   amount: number,
   date: string

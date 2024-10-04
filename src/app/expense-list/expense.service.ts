@@ -13,7 +13,7 @@ export class ExpenseListService {
     {
       id: 1,
       title: 'Groceries',
-      type: 'expense',
+      isRevenue: false,
       description: 'Groceries for the week',
       amount: 100,
       date: new Date().toISOString()
@@ -21,7 +21,7 @@ export class ExpenseListService {
     {
       id: 2,
       title: 'Rent',
-      type: 'expense',
+      isRevenue: false,
       description: 'Rent for the month',
       amount: 500,
       date: new Date().toISOString()
@@ -29,7 +29,7 @@ export class ExpenseListService {
     {
       id: 3,
       title: 'Car payment',
-      type: 'expense',
+      isRevenue: false,
       description: 'Monthly car payment',
       amount: 200,
       date: new Date().toISOString()
@@ -53,13 +53,17 @@ export class ExpenseListService {
   }
 
   addExpense(expense: ExpenseItem) {
-    this.expenses.push(expense);
-    this.totalAmount += expense.amount;
-    if (expense.amount > 0) {
+    const id = this.expenses.length + 1;
+    this.expenses.push({ ...expense, id });
+
+    if (expense.isRevenue) {
+      console.log('revenue');
       this.positiveAmount += expense.amount;
     } else {
+      console.log('expense');
       this.negativeAmount += expense.amount;
     }
-  }
 
+    this.totalAmount = this.positiveAmount - this.negativeAmount;
+  }
 }
